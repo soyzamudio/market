@@ -1,0 +1,129 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "posh": {
+      "root": "apps/posh/",
+      "sourceRoot": "apps/posh/src",
+      "projectType": "application",
+      "prefix": "posh",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@nrwl/builders:web-build",
+          "options": {
+            "outputPath": "dist/apps/posh",
+            "index": "apps/posh/src/index.html",
+            "main": "apps/posh/src/main.tsx",
+            "polyfills": "apps/posh/src/polyfills.ts",
+            "tsConfig": "apps/posh/tsconfig.app.json",
+            "assets": ["apps/posh/src/favicon.ico", "apps/posh/src/assets"],
+            "styles": ["apps/posh/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/posh/src/environments/environment.ts",
+                  "with": "apps/posh/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/builders:web-dev-server",
+          "options": {
+            "buildTarget": "posh:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "posh:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/posh/tsconfig.app.json",
+              "apps/posh/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/posh/jest.config.js",
+            "tsConfig": "apps/posh/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "posh-e2e": {
+      "root": "apps/posh-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/posh-e2e/cypress.json",
+            "tsConfig": "apps/posh-e2e/tsconfig.e2e.json",
+            "devServerTarget": "posh:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "posh:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/posh-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics"
+  },
+  "schematics": {
+    "@nrwl/schematics:application": {
+      "style": "scss",
+      "framework": "react"
+    },
+    "@nrwl/schematics:library": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "posh"
+}
