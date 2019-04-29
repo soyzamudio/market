@@ -1,40 +1,34 @@
 import * as React from "react";
 import { Component } from "react";
+import { createBrowserHistory } from 'history'
+import { Router, Route } from 'react-router-dom';
+
+import { HomePage } from '@posh/home-page';
+import { SearchPage } from '@posh/search-page';
+import { Navbar } from '@posh/navbar';
+import { Footer } from '@posh/footer';
 
 import "./app.scss";
 
-export class App extends Component {
+const history = createBrowserHistory();
+
+export class App extends Component<any, any> {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    const title = "posh";
     return (
-      <div>
-        <div style={{ textAlign: "center" }}>
-          <h1>Welcome to {title}!</h1>
-          <img
-            width="450"
-            src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-          />
+      <Router history={history}>
+        <div className="app">
+          <div className="app-content">
+            <Navbar homePage={history.location.pathname === '/'} />
+            <Route path="/" exact component={HomePage} />
+            <Route path="/l/:category?" component={SearchPage} />
+            <Footer />
+          </div>
         </div>
-        <p>
-          This is a React app built with <a href="https://nx.dev">Nx</a>.
-        </p>
-        <p>
-          🔎 **Nx is a set of Angular CLI power-ups for modern development.**
-        </p>
-        <h2>Quick Start & Documentation</h2>
-        <ul>
-          <li>
-            <a href="https://nx.dev/getting-started/what-is-nx">
-              30-minute video showing all Nx features
-            </a>
-          </li>
-          <li>
-            <a href="https://nx.dev/tutorial/01-create-application">
-              Interactive tutorial
-            </a>
-          </li>
-        </ul>
-      </div>
+      </Router>
     );
   }
 }

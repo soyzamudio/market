@@ -1,0 +1,24 @@
+.popular-brand {
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    height: 122px;
+    line-height: 122px;
+    width: 303px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-family: Merriweather;
+    font-weight: bold;
+    font-size: 28px;
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition-property: box-shadow, transform;
+    transition-duration: .15s;
+
+    &:hover {
+        box-shadow: 0 30px 60px -12px rgba(50,50,93,.25), 0 18px 36px -18px rgba(0,0,0,.3), 0 -12px 36px -8px rgba(0,0,0,.025);
+        transform: translateY(-2px);
+    }
+}

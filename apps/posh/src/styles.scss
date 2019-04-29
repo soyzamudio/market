@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import 'mixins';
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: SourceSansPro-Regular;
+    background: $background;
+}
+
+.logo {
+    font-family: AmericanTypewriter-CondensedBold;
+    font-size: 18px;
+    color: $black;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: Merriweather;
+    font-weight: bold;
+    font-size: 34px;
+}
+
+input {
+    border: none;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.01), 0 4px 6px 0 rgba(50,50,93,0.11);
+    border-radius: 4px;
+    font-size: 16px;
+    padding-left: 20px;
+
+    @include placeholder {
+        color: $dark-gray;
+        font-size: 16px;
+        margin: 0;
+    }
+}
+
+button {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.01), 0 4px 6px 0 rgba(50,50,93,0.11);
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #FFFFFF;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+
+    &.btn-large {
+        height: 50px;
+    }
+}

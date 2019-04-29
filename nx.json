@@ -13,6 +13,39 @@
     },
     "posh-e2e": {
       "tags": []
+    },
+    "navbar": {
+      "tags": []
+    },
+    "hero": {
+      "tags": []
+    },
+    "home-page": {
+      "tags": []
+    },
+    "section-header": {
+      "tags": []
+    },
+    "pill": {
+      "tags": []
+    },
+    "search-page": {
+      "tags": []
+    },
+    "section-subheader": {
+      "tags": []
+    },
+    "popular-brand": {
+      "tags": []
+    },
+    "trending-brand": {
+      "tags": []
+    },
+    "popular-style": {
+      "tags": []
+    },
+    "footer": {
+      "tags": []
     }
   }
 }

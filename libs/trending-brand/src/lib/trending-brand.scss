@@ -1,0 +1,32 @@
+.trending-brand {
+    display: flex;
+    flex-grow: 1;
+    width: (100% / 3);
+    margin-top: 20px;
+
+    &__ranking {
+        background: #FFFFFF;
+        border: 1px solid #D0D9E8;
+        font-family: Merriweather;
+        font-weight: bold;
+        font-size: 14px;
+        color: #3CA3E2;
+        height: 25px;
+        width: 25px;
+        line-height: 25px;
+        border-radius: 50%;
+        text-align: center;
+    }
+
+    &__title {
+        text-decoration: none;
+        margin-left: 10px;
+        font-size: 18px;
+        color: #444444;
+
+        &:hover {
+            color: lighten(#444444, 20%);
+        }
+    }
+    
+}

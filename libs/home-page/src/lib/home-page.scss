@@ -1,0 +1,22 @@
+.home-page {
+    &__content {
+        width: 940px;
+        margin: 0 auto;
+    }
+
+    &__pills {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    &__popular-brands, &__popular-styles {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    &__trending-brands {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto
+    }
+}

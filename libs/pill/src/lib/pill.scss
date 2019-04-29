@@ -1,0 +1,19 @@
+.pill {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #D0D9E8;
+    border-radius: 25px;
+    height: 50px;
+    width: 150px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #444444;
+    margin: 0 10px;
+    cursor: pointer;
+
+    &--active {
+        background: #F5F6F8;
+    }
+}

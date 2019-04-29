@@ -14,7 +14,19 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@posh/navbar": ["libs/navbar/src/index.ts"],
+      "@posh/hero": ["libs/hero/src/index.ts"],
+      "@posh/home-page": ["libs/home-page/src/index.ts"],
+      "@posh/section-header": ["libs/section-header/src/index.ts"],
+      "@posh/pill": ["libs/pill/src/index.ts"],
+      "@posh/search-page": ["libs/search-page/src/index.ts"],
+      "@posh/section-subheader": ["libs/section-subheader/src/index.ts"],
+      "@posh/popular-brand": ["libs/popular-brand/src/index.ts"],
+      "@posh/trending-brand": ["libs/trending-brand/src/index.ts"],
+      "@posh/popular-style": ["libs/popular-style/src/index.ts"],
+      "@posh/footer": ["libs/footer/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

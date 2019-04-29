@@ -24,7 +24,7 @@
             "tsConfig": "apps/posh/tsconfig.app.json",
             "assets": ["apps/posh/src/favicon.ico", "apps/posh/src/assets"],
             "styles": ["apps/posh/src/styles.scss"],
-            "scripts": []
+            "scripts": ["apps/posh/src/js/modernizr.js"]
           },
           "configurations": {
             "production": {
@@ -105,6 +105,336 @@
             "tsConfig": "apps/posh-e2e/tsconfig.e2e.json",
             "exclude": ["**/node_modules/**"]
           }
+        }
+      }
+    },
+    "navbar": {
+      "root": "libs/navbar",
+      "sourceRoot": "libs/navbar/src",
+      "projectType": "library",
+      "prefix": "posh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/navbar/tsconfig.lib.json",
+              "libs/navbar/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/navbar/jest.config.js",
+            "tsConfig": "libs/navbar/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "hero": {
+      "root": "libs/hero",
+      "sourceRoot": "libs/hero/src",
+      "projectType": "library",
+      "prefix": "posh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/hero/tsconfig.lib.json",
+              "libs/hero/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/hero/jest.config.js",
+            "tsConfig": "libs/hero/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "home-page": {
+      "root": "libs/home-page",
+      "sourceRoot": "libs/home-page/src",
+      "projectType": "library",
+      "prefix": "posh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/home-page/tsconfig.lib.json",
+              "libs/home-page/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/home-page/jest.config.js",
+            "tsConfig": "libs/home-page/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "section-header": {
+      "root": "libs/section-header",
+      "sourceRoot": "libs/section-header/src",
+      "projectType": "library",
+      "prefix": "posh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/section-header/tsconfig.lib.json",
+              "libs/section-header/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/section-header/jest.config.js",
+            "tsConfig": "libs/section-header/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "pill": {
+      "root": "libs/pill",
+      "sourceRoot": "libs/pill/src",
+      "projectType": "library",
+      "prefix": "posh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/pill/tsconfig.lib.json",
+              "libs/pill/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/pill/jest.config.js",
+            "tsConfig": "libs/pill/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "search-page": {
+      "root": "libs/search-page",
+      "sourceRoot": "libs/search-page/src",
+      "projectType": "library",
+      "prefix": "posh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/search-page/tsconfig.lib.json",
+              "libs/search-page/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/search-page/jest.config.js",
+            "tsConfig": "libs/search-page/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "section-subheader": {
+      "root": "libs/section-subheader",
+      "sourceRoot": "libs/section-subheader/src",
+      "projectType": "library",
+      "prefix": "posh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/section-subheader/tsconfig.lib.json",
+              "libs/section-subheader/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/section-subheader/jest.config.js",
+            "tsConfig": "libs/section-subheader/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "popular-brand": {
+      "root": "libs/popular-brand",
+      "sourceRoot": "libs/popular-brand/src",
+      "projectType": "library",
+      "prefix": "posh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/popular-brand/tsconfig.lib.json",
+              "libs/popular-brand/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/popular-brand/jest.config.js",
+            "tsConfig": "libs/popular-brand/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "trending-brand": {
+      "root": "libs/trending-brand",
+      "sourceRoot": "libs/trending-brand/src",
+      "projectType": "library",
+      "prefix": "posh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/trending-brand/tsconfig.lib.json",
+              "libs/trending-brand/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/trending-brand/jest.config.js",
+            "tsConfig": "libs/trending-brand/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "popular-style": {
+      "root": "libs/popular-style",
+      "sourceRoot": "libs/popular-style/src",
+      "projectType": "library",
+      "prefix": "posh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/popular-style/tsconfig.lib.json",
+              "libs/popular-style/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/popular-style/jest.config.js",
+            "tsConfig": "libs/popular-style/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "footer": {
+      "root": "libs/footer",
+      "sourceRoot": "libs/footer/src",
+      "projectType": "library",
+      "prefix": "posh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/footer/tsconfig.lib.json",
+              "libs/footer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/footer/jest.config.js",
+            "tsConfig": "libs/footer/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
         }
       }
     }
