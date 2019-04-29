@@ -3,11 +3,11 @@
     height: 750px;
     display: flex;
     flex-direction: column;
-    padding: 0 100px;
 
     &__content {
         margin-top: 100px;
         width: 513px;
+        padding-left: 100px;
     }
 
     &__title {

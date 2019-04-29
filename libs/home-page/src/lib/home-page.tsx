@@ -8,7 +8,10 @@ import { Pill, IPill } from '@posh/pill';
 import { PopularBrand, IPopularBrand } from '@posh/popular-brand';
 import { TrendingBrand, ITrendingBrand } from '@posh/trending-brand';
 import { PopularStyle, IPopularStyle } from '@posh/popular-style';
+
+
 import './home-page.scss';
+import apiService from './api-service';
 
 interface HomePageState {
   popularPills?: Array<IPill>;
@@ -18,8 +21,10 @@ interface HomePageState {
   popularStyles?: Array<IPopularStyle>;
 }
 
-export class HomePage extends Component<any, HomePageState> {
-  constructor(props: any)  {
+interface HomePageProps {}
+
+export class HomePage extends Component<HomePageProps, HomePageState> {
+  constructor(props: HomePageProps)  {
     super(props);
 
     this.state = {
@@ -32,40 +37,31 @@ export class HomePage extends Component<any, HomePageState> {
         { title: 'Vendo', active: true },
         { title: 'Compro', active: false },
       ],
-      popularBrands: [
-        { image: '/assets/images/zara.jpg', title: 'Zara', url: '/m/zara' },
-        { image: '/assets/images/hm.jpg', title: 'H&M', url: '/m/hm' },
-        { image: '/assets/images/pullbear.jpg', title: 'Pull & Bear', url: '/m/pull-and-bear' },
-        { image: '/assets/images/innova.jpg', title: 'Innovasport', url: '/m/innovasport' },
-        { image: '/assets/images/hollister.jpg', title: 'Hollister', url: '/m/hollister' },
-        { image: '/assets/images/pink.jpg', title: 'Pink', url: '/m/pink' },
-      ],
-      trendingBrands: [
-        { title: 'IVY Park', url: '/m/ivy-park' },
-        { title: 'LipSense', url: '/m/lipsense' },
-        { title: 'Pura Vida', url: '/m/pura-vida' },
-        { title: 'Spell and The Gipsy', url: '/m/spell-and-the-gipsy' },
-        { title: 'Crown and Ivy', url: '/m/crown-and-ivy' },
-        { title: 'Infinite Rain', url: '/m/infinite-rain' },
-        { title: 'Kasper', url: '/m/kasper' },
-        { title: 'Bisou Bisou', url: '/m/bisou-bisou' },
-        { title: 'Marc Fisher', url: '/m/marc-fisher' },
-        { title: 'Ashley Stewart', url: '/m/ahsley-stewart' },
-        { title: 'Lucy', url: '/m/lucy' },
-        { title: 'Club Monaco', url: '/m/club-monaco' },
-        { title: 'Premier Designs', url: '/m/premier-designs' },
-        { title: 'VENUS', url: '/m/venus' },
-        { title: 'Bauble Bar', url: '/m/bauble-bar' },
-      ],
-      popularStyles: [
-        { title: 'Vestido de Noche', image: '/assets/images/cocktail.jpg', url: '/l/women/dresses' },
-        { title: 'Vestido de Playa', image: '/assets/images/beach.jpg', url: '/l/women/dresses' },
-        { title: 'Flats', image: '/assets/images/flats.jpg', url: '/l/women/shoes' },
-      ]
+      popularBrands: [],
+      trendingBrands: [],
+      popularStyles: [],
     }
 
     this.popularPillClickHandler = this.popularPillClickHandler.bind(this);
     this.howToPillClickHandler = this.howToPillClickHandler.bind(this);
+  }
+
+  componentDidMount() {
+    this.getPopularData();
+  }
+
+  async getPopularData() {
+    try {
+      const [ popularBrands, popularStyles, trendingBrands ] = await Promise.all([
+        apiService.getPopularBrands(), 
+        apiService.getPopularStyles(),
+        apiService.getTrendingBrands(),
+      ]);
+      console.log({popularBrands, trendingBrands});
+      this.setState({popularBrands, trendingBrands, popularStyles});
+    } catch(e) {
+      console.error(e.message);
+    }
   }
 
   popularPillClickHandler(clickedPill: IPill) {
