@@ -1,17 +1,9 @@
 class ApiService {
-    apiUrl: string;
-    userFields: string;
-    todoFields: string;
-    popularBrandsFields: string;
-    popularStylesFields: string;
-    trendingBrandsFields: string;
-
-    constructor() {
-        this.apiUrl = 'http://localhost:3001/graphql';
-        this.popularBrandsFields = `{id, title, url, image}`;
-        this.popularStylesFields = `{id, title, url, image}`;
-        this.trendingBrandsFields = `{id, title, url}`;
-    }
+    apiUrl = 'http://localhost:3001/graphql';
+    popularBrandsFields = `{id, title, url, image}`;
+    popularStylesFields = `{id, title, url, image}`;
+    trendingBrandsFields = `{id, title, url}`;
+    productsFields = `{id, title, price, priceLabel, favoriteCount, retailerId, condition}`;
 
     async getGraphQlData(resource, params, fields) {
         const query = `{${resource} ${this.paramsToString(params)} ${fields}}`
@@ -31,6 +23,11 @@ class ApiService {
         } else {
             throw new Error(res.statusText);
         }
+    }
+
+    async getProducts(params = {}) {
+        const data = await this.getGraphQlData('products', params, this.productsFields);
+        return data.products;
     }
 
     async getPopularBrands(params = {}) {

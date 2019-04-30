@@ -25,7 +25,8 @@
       "@posh/popular-brand": ["libs/popular-brand/src/index.ts"],
       "@posh/trending-brand": ["libs/trending-brand/src/index.ts"],
       "@posh/popular-style": ["libs/popular-style/src/index.ts"],
-      "@posh/footer": ["libs/footer/src/index.ts"]
+      "@posh/footer": ["libs/footer/src/index.ts"],
+      "@posh/product-cell": ["libs/product-cell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

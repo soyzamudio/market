@@ -19,6 +19,7 @@ interface HomePageState {
   popularBrands?: Array<IPopularBrand>;
   trendingBrands?: Array<ITrendingBrand>;
   popularStyles?: Array<IPopularStyle>;
+  products?: any;
 }
 
 interface HomePageProps {}
@@ -52,13 +53,15 @@ export class HomePage extends Component<HomePageProps, HomePageState> {
 
   async getPopularData() {
     try {
-      const [ popularBrands, popularStyles, trendingBrands ] = await Promise.all([
+      const [ popularBrands, popularStyles, trendingBrands, products ] = await Promise.all([
         apiService.getPopularBrands(), 
         apiService.getPopularStyles(),
         apiService.getTrendingBrands(),
+        apiService.getProducts(),
       ]);
-      console.log({popularBrands, trendingBrands});
-      this.setState({popularBrands, trendingBrands, popularStyles});
+
+      console.log(products);
+      this.setState({popularBrands, trendingBrands, popularStyles, products});
     } catch(e) {
       console.error(e.message);
     }
